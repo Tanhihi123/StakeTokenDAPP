@@ -11,8 +11,7 @@ function App() {
   return (
     <Web3Provider>
       <Routes>
-        <Route path="/" element={<HomePage></HomePage>}></Route>
-        <Route path="/stake" element={<StakingPage></StakingPage>}></Route>
+        <Route path="/" element={<StakingPage></StakingPage>}></Route>
       </Routes>
     </Web3Provider>
   );
