@@ -62,7 +62,6 @@ body {
   font-family: "Epilogue", sans-serif;
   font-size: 16px;
   color: #232323;
-  overflow: hidden;
 }
 .glow-point {
   position: absolute;
