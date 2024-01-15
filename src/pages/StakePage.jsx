@@ -1,18 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ClaimReward from "../components/ClaimReward/ClaimReward";
-import DisplayPannel from "../components/DisplayPannel/DisplayPannel";
-import Navigation from "../components/Navigation/Navigation";
-import StakeAmount from "../components/StakeToken/StakeAmount";
-import TokenApproval from "../components/StakeToken/TokenApproval";
-import Wallet from "../components/Wallet/Wallet";
-import WithdrawStakeAmount from "../components/Withdraw/Withdraw";
 import Loading from "../components/Loading/Loading";
-import StakingContext, { StakingProvider } from "../context/StakingContext";
+import StakingContext from "../context/StakingContext";
 import Button from "../components/Button/Button";
 import Web3Context from "../context/Web3Context";
 import axios from "axios";
-import { ethers, formatEther } from "ethers";
 import StarsMouse from "../components/Mouse/StarsMouse";
+import { ethers } from "ethers";
+import "../components/Mouse/StarsMouse.css"
 const StakePage = () => {
   const [ethPrice, setEthPrice] = useState(null);
   const [convertEth, setConvertEth] = useState(null);
@@ -187,19 +182,14 @@ const StakePage = () => {
       const balance = await stakeTokenContract.balanceOf(selectedAccount);
       const balanceConvert = ethers.formatUnits(balance.toString(), 18);
       setBalance(balanceConvert);
+      console.log(balanceConvert);
     }
     getBalance();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedAccount]);
   return (
     <>
-      {/* <Navigation></Navigation>
-      <DisplayPannel></DisplayPannel>
-      <StakeAmount></StakeAmount>
-      <WithdrawStakeAmount></WithdrawStakeAmount>
-      <TokenApproval></TokenApproval>
-      <ClaimReward></ClaimReward> */}
-      <div className="w-[500px] h-fit rounded-3xl px-3.5 py-5 sm:px-7 sm:py-7 shadow-lg border border-gray-200 bg-white dark:border-darkmode-border dark:bg-zinc-900 ">
+      <div className="stake w-[500px] h-fit rounded-3xl px-3.5 py-5 sm:px-7 sm:py-7 shadow-lg border border-gray-200 bg-white dark:border-darkmode-border dark:bg-zinc-900 ">
         <div className="flex flex-col gap-4 items-center">
           <h1 className="text-center text-4xl font-medium">Stake STK</h1>
           <div className="text-center text-lg md:text-xl text-gray-400 dark:text-gray-400 px-14">

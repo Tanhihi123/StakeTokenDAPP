@@ -1,11 +1,11 @@
+import { ethers } from "ethers";
 import React, { useContext, useEffect, useState } from "react";
 import Web3Context from "../../context/Web3Context";
-import Button from "../Button/Button";
-import { ethers } from "ethers";
 
 const ClaimReward = () => {
   const [transactionStatus, setTransactionStatus] = useState("");
-  const { stakingContract, selectedAccount } = useContext(Web3Context);
+  const { state } = useContext(Web3Context);
+  const { stakingContract, selectedAccount } = state;
   const [rewardVal, setRewardVal] = useState("0");
   useEffect(() => {
     const fetchStakeRewardInfo = async () => {
@@ -26,7 +26,8 @@ const ClaimReward = () => {
       stakingContract && fetchStakeRewardInfo();
     }, 1000);
     return () => clearInterval(interval);
-  }, [stakingContract, selectedAccount]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stakingContract,selectedAccount]);
   const claimReward = async () => {
     try {
       const transaction = await stakingContract.getReward();

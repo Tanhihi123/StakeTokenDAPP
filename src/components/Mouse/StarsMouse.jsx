@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "./StarsMouse.css";
 const StarsMouse = () => {
   const [last, setLast] = useState({
     starTimestamp: 0,
