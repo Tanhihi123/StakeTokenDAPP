@@ -533,3 +533,39 @@ strong {
     transform: translateY(-0.1em);
   }
 }
+.input-group2 {
+  display: flex;
+  align-items: center;
+}
+
+.input2 {
+  min-height: 50px;
+  max-width: 350px;
+  padding: 0 1rem;
+  color: #0e0d0d;
+  font-size: 15px;
+  border: 1px solid #5e4dcd;
+  border-radius: 6px 0 0 6px;
+  background-color: transparent;
+}
+
+.button--submit {
+  min-height: 50px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #5e4dcd;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.button--submit:hover {
+  background-color: #5e5dcd;
+}
+
+.input2:focus, .input2:focus-visible {
+  border-color: #3898EC;
+  outline: none;
+}

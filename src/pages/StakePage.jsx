@@ -62,6 +62,7 @@ const StakePage = () => {
           amountStakedWei.toString(),
           18
         );
+        console.log(typeof(amountStakedEth));
         setStakedAmount(amountStakedEth);
       } catch (error) {
         console.log("Error fetching data :", error.message);
@@ -131,6 +132,8 @@ const StakePage = () => {
     const amountToStake = ethers.parseUnits(amount, 18).toString();
     try {
       console.log(stakingContract.target);
+      console.log("AmountoStake", amountToStake);
+      console.log("Account : ",selectedAccount);
       const transaction = await stakingContract.stake(amountToStake);
       setTransactionStatus("Transaction is in pending...");
       const receipt = await transaction.wait();
@@ -151,11 +154,17 @@ const StakePage = () => {
   const withdrawStakeToken = async (e) => {
     e.preventDefault();
     const amount = withdrawStakeAmountRef.current.value.trim();
+    console.log("Amount ",amount);
     if (isNaN(amount) || amount <= 0) {
       console.log("Please enter a valid positive number");
       return;
     }
     const amountToWithdraw = ethers.parseUnits(amount, 18).toString();
+    console.log("amount to withdraw", amountToWithdraw);
+    // const stakedBalance = await stakingContract.stakedBalance(selectedAccount);
+    // const BalanceConvert =  ethers.formatUnits(stakedBalance.toString(), 18)
+    // console.log("Balance",BalanceConvert);
+    console.log("amounttowithdraw",typeof(amountToWithdraw));
     try {
       console.log(stakingContract.target);
       const transaction = await stakingContract.withdrawStakedTokens(
@@ -182,7 +191,6 @@ const StakePage = () => {
       const balance = await stakeTokenContract.balanceOf(selectedAccount);
       const balanceConvert = ethers.formatUnits(balance.toString(), 18);
       setBalance(balanceConvert);
-      console.log(balanceConvert);
     }
     getBalance();
     // eslint-disable-next-line react-hooks/exhaustive-deps
