@@ -3,7 +3,7 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "stakingToken",
+				"name": "stakeToken",
 				"type": "address"
 			},
 			{
@@ -184,7 +184,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "s_stakingToken",
+		"name": "s_stakeToken",
 		"outputs": [
 			{
 				"internalType": "contract IERC20",

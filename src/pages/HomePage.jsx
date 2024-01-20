@@ -13,8 +13,8 @@ const HomePage = () => {
       <div className="flex flex-col gap-3 justify-center items-center pt-16">
         <div className="flex flex-col items-center gap-4 lg:gap-5 pt-16">
           <div className="rounded-full border border-gray-300 dark:border-darkmode-border p-2 md:p-4">
-            <div className="flex items-center justify-center gap-x-2 font-bold text-[#2a7a60]">
-              Build On
+            <div className="flex items-center justify-center gap-x-2 font-bold text-[#2a7a60] dark:text-white">
+              Built On
               <img
                 src="https://i.ibb.co/wMMdckS/ethereum-logo1-1.png"
                 alt="ethereum-logo1-1"
@@ -25,8 +25,10 @@ const HomePage = () => {
             </div>
           </div>
           <h1 className="text-2xl xs:text-4xl lg:text-7xl leading-none font-semibold flex flex-col items-center text-center pt-1 mt-5">
-            <span className="text-[#b96bfc]">MEV Powered</span>
-            <span>Staking Rewards.</span>
+            <span className="text-[#b96bfc] dark:text-[#8849ff]">
+              MEV Powered
+            </span>
+            <span className="dark:text-white">Staking Rewards.</span>
           </h1>
           <div className="font-medium text-center text-gray-400 dark:text-light-gray lg:text-left text-base xs:text-lg sm:text-xl">
             Earn MEV rewards through liquid staking
@@ -61,9 +63,9 @@ const HomePage = () => {
             <Button className="btnconnect" label="Stake Now"></Button>
           </Link>
         </div>
-        <div className="relative w-full flex items-center justify-center mt-0 xs:-mt-24 lg:mt-[144px] px-6 md:px-16 border border-t-gray-200 p-28">
+        <div className="relative w-full flex items-center justify-center mt-0 xs:-mt-24 lg:mt-[144px] px-6 md:px-16 border border-t-gray-200 dark:border-gray-500 p-28">
           <div className="m-auto max-w-[956px] text-center">
-            <div className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-[51px] leading-[26px] sm:leading-[31px] md:leading-[40px] lg:leading-[55px]">
+            <div className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-[51px] leading-[26px] sm:leading-[31px] md:leading-[40px] lg:leading-[55px] dark:text-white">
               <span className="text-basic text-[#b96bfc]">”</span>JITO has a
               great approach to maximize the benefits of MEV to the network
               while minimizing its negative externalities...{" "}
@@ -89,12 +91,12 @@ const HomePage = () => {
         <ConnectUs></ConnectUs>
         <div className="w-full p-4 lg:p-10 mt-6 sm:mt-10 lg:mt-12 flex flex-col">
           <div className="flex justify-center text-3xl lg:mt-0 w-full h-full md:text-5xl xl:text-6xl font-semibold leading-none">
-            <div className="text-center">
+            <div className="text-center dark:text-white">
               Why Staking With Us{" "}
               <p className="text-basic pt-2 text-[#b96bfc]">Helps You</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-14 max-w-sm  mx-auto md:max-w-none">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-14 max-w-sm  mx-auto md:max-w-none dark:text-white">
             <div className="bg-surface flex flex-col justify-between dark:bg-darkmode-surface border border-gray-300 dark:border-gray-300 shadow-xl rounded-[35px] p-4 lg:p-10 h-[225px]  md:h-[300px] lg:h-[450px] xl:h-[530px]">
               <div className="flex justify-between">
                 <div className="font-normal text-5xl text-basic md:text-3xl lg:text-4xl xl:text-6xl text-[#b96bfc]">
@@ -144,10 +146,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col w-full items-center mt-[100px] py-10">
+          <div className="flex flex-col w-full items-center mt-[100px] py-10 dark:text-white">
             <div className="m-auto text-[#b96bfc] hidden lg:block text-[70px] font-bold leading-none">
-              Why Staking With Us
-              <p className="text-basic">Helps the Network</p>
+              <p className="dark:text-[#8849ff]">Why Staking With Us</p>
+              <p className="text-basic text-center">Helps the Network</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-10 lg:mt-10">
               <div className="flex flex-col w-full justify-between max-h-96">
@@ -196,10 +198,10 @@ const HomePage = () => {
           </div>
         </div>
         <div className="my-4">
-          <div className="w-full text-[#09563a] dark:text-[#09563a]  text-[70px] font-bold leading-none text-center mb-14">
+          <div className="w-full text-[#09563a] dark:text-[#8849ff]  text-[70px] font-bold leading-none text-center mb-14">
             Jito Stats
           </div>
-          <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-[120px]">
+          <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-[120px] dark:text-white">
             <div className="relative w-72 h-60 sm:w-48 sm:h-54 md:w-64 md:h-64 lg:w-96 lg:h-96 rounded-[35px] border border-gray-300 dark:border-gray-300 shadow-xl p-8 flex flex-col justify-between">
               <div className="font-semibold text-2xl sm:text-xl md:text-3xl">
                 TVL in pool
@@ -245,13 +247,13 @@ const HomePage = () => {
           </div>
         </div>
         <div className="flex flex-col items-center rounded-xl px-10 pt-28 pb-10">
-          <div className="text-4xl lg:text-6xl font-bold text-[#b96bfc] dark:text-[#b96bfc]">
+          <div className="text-4xl lg:text-6xl font-bold text-[#b96bfc] dark:text-[#8849ff]">
             How it works
           </div>
           <div className="text-center font-semibold mt-4 text-xl lg:text-2xl pb-16 text-[#b96bfc] dark:text-[#b96bfc]">
             Stake ETH with us and earn additional MEV rewards!
           </div>
-          <div className="hidden sm:flex flex-row flex-wrap gap-x-12 gap-y-16 justify-center items-center">
+          <div className="hidden sm:flex flex-row flex-wrap gap-x-12 gap-y-16 justify-center items-center dark:text-white">
             <div className="relative rounded-xl shadow-xl w-64 h-64 md:w-72 md:h-72 lg:w-96 lg:h-96">
               <img
                 src="https://i.ibb.co/RcfsdcX/liquid-token.webp"
@@ -339,7 +341,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center mt-24 pb-4 w-full relative">
-          <div className="font-medium text-4xl lg:text-[80px] leading-none text-center pb-3">
+          <div className="font-medium text-4xl lg:text-[80px] leading-none text-center pb-3 dark:text-white">
             Earn Boosted
             <p>Rewards Now.</p>
           </div>

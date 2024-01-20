@@ -50,7 +50,7 @@ const ClaimReward = () => {
     <div>
       {transactionStatus && <div>{transactionStatus}</div>}
       <button className="btn2" type="button" onClick={claimReward}>
-        <strong>Earned: {rewardVal} RWT</strong>
+        <strong>Earned: {rewardVal} $REWARD</strong>
         <div id="container-stars">
           <div id="stars"></div>
         </div>

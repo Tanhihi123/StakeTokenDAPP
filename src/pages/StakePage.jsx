@@ -17,6 +17,7 @@ const StakePage = () => {
   const [rewardRate, setRewardRate] = useState(null);
   const { isReload, setIsReload } = useContext(StakingContext);
   const [inputValue, setInputValue] = useState(0);
+  const [inputWithdraw, setInputWithdraw] = useState(0);
   const [transactionStatus, setTransactionStatus] = useState("");
   const [stakedAmount, setStakedAmount] = useState("0");
   const stakeAmountRef = useRef();
@@ -151,9 +152,14 @@ const StakePage = () => {
       console.log("Staking Failed", error.message);
     }
   };
+  const handleChangeWithdraw = (e) => {
+    const inputValue = e.target.value;
+    setInputWithdraw(inputValue);
+  }
   const withdrawStakeToken = async (e) => {
     e.preventDefault();
-    const amount = withdrawStakeAmountRef.current.value.trim();
+    // const amount = withdrawStakeAmountRef.current.value.trim();
+    const amount = inputWithdraw
     console.log("Amount ",amount);
     if (isNaN(amount) || amount <= 0) {
       console.log("Please enter a valid positive number");
@@ -197,9 +203,9 @@ const StakePage = () => {
   }, [selectedAccount]);
   return (
     <>
-      <div className="stake w-[500px] h-fit rounded-3xl px-3.5 py-5 sm:px-7 sm:py-7 shadow-lg border border-gray-200 bg-white dark:border-darkmode-border dark:bg-zinc-900 ">
+      <div className="stake w-[500px] h-fit rounded-3xl px-3.5 py-5 sm:px-7 sm:py-7 shadow-lg border border-gray-200 bg-white dark:border-zinc-700 dark:bg-zinc-900 ">
         <div className="flex flex-col gap-4 items-center">
-          <h1 className="text-center text-4xl font-medium">Stake STK</h1>
+          <h1 className="text-center text-4xl font-medium dark:text-white">Stake TS</h1>
           <div className="text-center text-lg md:text-xl text-gray-400 dark:text-gray-400 px-14">
             Choose how much you want to stake and earn rewards
           </div>
@@ -208,10 +214,10 @@ const StakePage = () => {
               <div className="flex bg-gray-100 dark:bg-zinc-800 text-black text-extralight rounded-full">
                 <button
                   onClick={() => handleButtonClick("stake")}
-                  className={`w-full text-sm leading-5 outline-none transition-colors font-medium m-2 px-[15px] xs:px-[10px] py-[10px] xs:py-2 rounded-full dark:bg-zinc-900  dark:text-zinc-100 sm:text-base ${
+                  className={`w-full text-sm leading-5 outline-none transition-colors font-medium m-2 px-[15px] xs:px-[10px] py-[10px] xs:py-2 rounded-full  dark:text-zinc-100 sm:text-base ${
                     activeButton === "stake"
-                      ? "bg-white shadow text-zinc-700"
-                      : "text-gray-400 hover:bg-gray-200"
+                      ? "bg-white shadow text-zinc-700 dark:bg-zinc-900"
+                      : "text-gray-400 hover:bg-gray-200 dark:hover:bg-zinc-700 dark:text-zinc-400"
                   }`}
                 >
                   <div className="w-full flex justify-center items-center pl-[2px] sm:pl-1 gap-x-3">
@@ -223,10 +229,10 @@ const StakePage = () => {
                 </button>
                 <button
                   onClick={() => handleButtonClick("unstake")}
-                  className={`w-full text-sm leading-5 outline-none transition-colors font-medium m-2 px-[60px] xs:px-[10px] py-[6px] xs:py-2 rounded-full dark:bg-zinc-900 dark:text-zinc-100 sm:text-base ${
+                  className={`w-full text-sm leading-5 outline-none transition-colors font-medium m-2 px-[60px] xs:px-[10px] py-[6px] xs:py-2 rounded-full  dark:text-zinc-100 sm:text-base ${
                     activeButton === "unstake"
-                      ? "bg-white shadow text-zinc-700"
-                      : "text-gray-400 hover:bg-gray-200"
+                      ? "bg-white shadow text-zinc-700 dark:bg-zinc-900"
+                      : "text-gray-400 hover:bg-gray-200 dark:hover:bg-zinc-700 dark:text-zinc-400"
                   }`}
                 >
                   Unstake
@@ -255,7 +261,7 @@ const StakePage = () => {
                           className="w-5 h-5"
                         ></img>
                         <div className="flex flex-row items-center pl-1 pt-[2px] text-base font-medium text-zinc-600 dark:text-zinc-300">
-                          STK
+                          TS
                         </div>
                       </div>
                     </div>
@@ -264,7 +270,7 @@ const StakePage = () => {
                     <input
                       type="number"
                       pattern="[0-9]*"
-                      className="text-right bg-white dark:bg-zinc-900 p-0 mb-0 border-0 w-full h-full outline-none text-2xl lg:text-3xl  placeholder:text-gray-400"
+                      className="text-right bg-white dark:text-white dark:bg-zinc-900 p-0 mb-0 border-0 w-full h-full outline-none text-2xl lg:text-3xl  placeholder:text-gray-400"
                       placeholder="O.O"
                       onChange={handleChange}
                       ref={stakeAmountRef}
@@ -286,21 +292,22 @@ const StakePage = () => {
                     border="0"
                     className="w-10 h-auto rounded-full"
                   ></img>
-                  <div className="font-light text-2xl text-back">STK</div>
+                  <div className="font-normal text-2xl text-back dark:text-white">TS</div>
                 </div>
                 <div className="w-full flex flex-col gap-4 mt-4 items-center">
                   <div className="flex flex-col w-full items-center">
                     <input
                       type="number"
-                      className="text-center mb-2 text-4xl lg:text-5xl rounded-full w-4/5 dark:bg-zinc-900"
+                      className="text-center mb-2 text-4xl lg:text-5xl rounded-full w-4/5 dark:bg-zinc-900 dark:text-white"
                       placeholder="O.OO"
                       ref={withdrawStakeAmountRef}
+                      onChange={handleChangeWithdraw}
                     />
                   </div>
                   <div className="flex flex-col items-center justify-center gap-3">
                     <div className="p-3 px-4 text-xs sm:text-base font-medium border border-light-gray dark:border-darkmode-border dark:text-gray-300 rounded-full flex items-center gap-2">
                       <div className="inline-flex items-center">
-                        Staked Amount : {stakedAmount} STK
+                        Staked Amount : {stakedAmount} TS
                       </div>
                     </div>
                     <ClaimReward></ClaimReward>
@@ -312,7 +319,7 @@ const StakePage = () => {
           {selectedAccount ? (
             <Button
               label={`${
-                activeButton === "stake" ? "Deposit RWT" : "Unstake RWT"
+                activeButton === "stake" ? "Deposit TS" : "Unstake TS"
               }`}
               onClick={
                 activeButton === "stake" ? stakeToken : withdrawStakeToken
@@ -322,7 +329,7 @@ const StakePage = () => {
           ) : (
             <Button
               label="Connect Wallet"
-              className="w-full btnconnect1 shadow-sm mt-5 hover:bg-[#f2e7f7] border border-gray-300"
+              className="w-full btnconnect1 shadow-sm mt-5 hover:bg-[#f2e7f7] border border-gray-300 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-[#382948]"
               onClick={handleWallet}
             ></Button>
           )}
@@ -332,7 +339,7 @@ const StakePage = () => {
                 1 RWT
               </div>
               {ethPrice ? (
-                <div className="font-medium">~ {ethPrice} USD</div>
+                <div className="font-medium dark:text-white">~ {ethPrice} USD</div>
               ) : (
                 <Loading></Loading>
               )}
@@ -342,7 +349,7 @@ const StakePage = () => {
                 Reward Rate
               </div>
               {rewardRate ? (
-                <div className="font-medium">{rewardRate} token / second</div>
+                <div className="font-medium dark:text-white">{rewardRate} token / second</div>
               ) : (
                 <Loading></Loading>
               )}

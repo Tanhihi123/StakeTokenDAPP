@@ -12,7 +12,7 @@ const ConnectUs = () => {
   return (
     <div className="w-full px-8 md:px-20 pt-16 pb-0 flex flex-col justify-start items-center gap-10">
         <div className="w-full flex flex-col justify-start items-center max-w-[600px]">
-          <div className="w-full text-center text-3xl md:text-[42px] font-bold leading-10 mb-4 lg:mb-10">
+          <div className="w-full text-center text-3xl md:text-[42px] font-bold leading-10 mb-4 lg:mb-10 dark:text-white">
             Stay connected with us
           </div>
           <form

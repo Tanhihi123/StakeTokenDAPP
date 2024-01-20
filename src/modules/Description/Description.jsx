@@ -21,7 +21,7 @@ const Description = ({ onClick }) => {
   }
   return (
     <div className="flex flex-col">
-      <h1 className="hidden md:block text-4xl md:text-4xl lg:text-7xl mb-6 md:mb-0">
+      <h1 className="hidden md:block text-4xl md:text-4xl lg:text-7xl mb-6 md:mb-0 dark:text-white">
         MEV Powered Staking Rewards.
       </h1>
       <p className="hidden md:block text-lg md:text-xl lg:text-2xl text-gray-500 dark:text-darkmode-medium-gray font-normal">
@@ -42,7 +42,7 @@ const Description = ({ onClick }) => {
           <button
             className="button--submit"
             onClick={handleFaucet}
-          >Faucet</button>
+          >Faucet TS</button>
         </div>
       ) : (
         <>
