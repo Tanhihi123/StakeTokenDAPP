@@ -103,23 +103,28 @@ const Navbar = ({ onClick }) => {
   const [darkMode, setDarkMode] = useState(false);
   const handleDark = () => {
     setDarkMode(!darkMode);
+    // setTimeout(() => {
+    //   localStorage.setItem("dark", JSON.stringify(!darkMode));
+    // },[500])
   }
   const handleClick = () => {
     setMenuVisible(!menuVisible);
   };
   useEffect(() => {
-    if (darkMode === true) {
+    localStorage.setItem("dark", JSON.stringify(darkMode));
+    // console.log(JSON.parse(localStorage.getItem("dark")));
+    if (JSON.parse(localStorage.getItem('dark')) === true) {
       document.documentElement.classList.add("dark");
       document.body.classList.add("bg-black");
     }
-    if (darkMode === false) {
+    if (JSON.parse(localStorage.getItem('dark')) === false) {
       document.documentElement.classList.remove("dark");
       document.body.classList.remove("bg-black");
     }
   }, [darkMode]);
   return (
     <div className="dark:bg-black">
-      <DashboardHeaderStyles darkMode={darkMode}>
+      <DashboardHeaderStyles darkMode={!JSON.parse(localStorage.getItem("dark"))|| false}>
         <Link to="/">
           <div className="logo pl-16">
             <div className="coin">
