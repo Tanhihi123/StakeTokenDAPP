@@ -97,34 +97,36 @@ function layChuoiCon(str) {
   return ketQua;
 }
 const Navbar = ({ onClick }) => {
-  const { state } = useContext(Web3Context);
+  const { state ,storage } = useContext(Web3Context);
   const { selectedAccount } = state;
   const [menuVisible, setMenuVisible] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  const handleDark = () => {
-    setDarkMode(!darkMode);
-    // setTimeout(() => {
-    //   localStorage.setItem("dark", JSON.stringify(!darkMode));
-    // },[500])
-  }
+  // const [darkMode, setDarkMode] = useState(false);
+  // const [storage, setStorage] = useState(false); 
+  // const handleDark = () => {
+  //   setDarkMode(!darkMode);
+  //   // setTimeout(() => {
+  //   //   localStorage.setItem("dark", JSON.stringify(!darkMode));
+  //   // },[500])
+  // }
   const handleClick = () => {
     setMenuVisible(!menuVisible);
   };
-  useEffect(() => {
-    localStorage.setItem("dark", JSON.stringify(darkMode));
-    // console.log(JSON.parse(localStorage.getItem("dark")));
-    if (JSON.parse(localStorage.getItem('dark')) === true) {
-      document.documentElement.classList.add("dark");
-      document.body.classList.add("bg-black");
-    }
-    if (JSON.parse(localStorage.getItem('dark')) === false) {
-      document.documentElement.classList.remove("dark");
-      document.body.classList.remove("bg-black");
-    }
-  }, [darkMode]);
+  // useEffect(() => {
+  //   localStorage.setItem("dark", JSON.stringify(darkMode));
+  //   // console.log(JSON.parse(localStorage.getItem("dark")));
+  //   if (JSON.parse(localStorage.getItem('dark')) === true) {
+  //     document.documentElement.classList.add("dark");
+  //     document.body.classList.add("bg-black");
+  //   }
+  //   if (JSON.parse(localStorage.getItem('dark')) === false) {
+  //     document.documentElement.classList.remove("dark");
+  //     document.body.classList.remove("bg-black");
+  //   }
+  //   setStorage(JSON.parse(localStorage.getItem("dark")));
+  // }, [darkMode]);
   return (
     <div className="dark:bg-black">
-      <DashboardHeaderStyles darkMode={!JSON.parse(localStorage.getItem("dark"))|| false}>
+      <DashboardHeaderStyles darkMode={storage}>
         <Link to="/">
           <div className="logo pl-16">
             <div className="coin">
@@ -218,7 +220,7 @@ const Navbar = ({ onClick }) => {
             ></Button>
           </div>
           <Menu toggle={menuVisible}></Menu>
-          <Darklight onClick={handleDark}></Darklight>
+          <Darklight></Darklight>
         </div>
       </DashboardHeaderStyles>
     </div>
