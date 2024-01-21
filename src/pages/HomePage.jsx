@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar onClick={handleWallet}></Navbar>
-      <div className="flex flex-col gap-3 justify-center items-center pt-16">
+      <div className="flex flex-col gap-3 justify-center items-center pt-36">
         <div className="flex flex-col items-center gap-4 lg:gap-5 pt-16">
           <div className="rounded-full border border-gray-300 dark:border-darkmode-border p-2 md:p-4">
             <div className="flex items-center justify-center gap-x-2 font-bold text-[#2a7a60] dark:text-white">

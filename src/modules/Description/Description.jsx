@@ -32,7 +32,7 @@ const Description = ({ onClick }) => {
         <div className="input-group2">
           <input
             type="email"
-            className="input2"
+            className="input2 dark:text-white"
             id="Email2"
             name="Email"
             placeholder="Your wallet address"

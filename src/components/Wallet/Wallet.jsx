@@ -12,7 +12,7 @@ const Wallet = ({ children }) => {
   return (
     <div className="flex flex-col">
       <Navbar onClick={handleWallet}></Navbar>
-      <div className="flex items-center justify-around gap-x-[120px] p-[150px]">
+      <div className="flex items-center justify-around gap-x-[120px] px-[150px] pt-[220px]">
         <Description onClick={handleWallet}></Description>
         <div>
           <div>{children}</div>
