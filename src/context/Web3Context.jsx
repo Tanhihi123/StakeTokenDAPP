@@ -14,23 +14,23 @@ export const Web3Provider = ({ children }) => {
     chainId: null,
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  const [storage, setStorage] = useState(false); 
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("dark")) || false
+  );
   const handleDark = () => {
-    setDarkMode(!darkMode);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("dark", JSON.stringify(newDarkMode));
+
   }
   useEffect(() => {
-    localStorage.setItem("dark", JSON.stringify(darkMode));
-    // console.log(JSON.parse(localStorage.getItem("dark")));
-    if (JSON.parse(localStorage.getItem('dark')) === true) {
+    if (darkMode) {
       document.documentElement.classList.add("dark");
       document.body.classList.add("bg-black");
-    }
-    if (JSON.parse(localStorage.getItem('dark')) === false) {
+    } else {
       document.documentElement.classList.remove("dark");
       document.body.classList.remove("bg-black");
     }
-    setStorage(JSON.parse(localStorage.getItem("dark")));
   }, [darkMode]);
   useEffect(() => {
     try {
@@ -88,7 +88,7 @@ export const Web3Provider = ({ children }) => {
     }
   };
   return (
-    <Web3Context.Provider value={{ state, handleWallet, isLoading , storage , handleDark}}>
+    <Web3Context.Provider value={{ state, handleWallet, isLoading,darkMode , handleDark}}>
       {children}
     </Web3Context.Provider>
   );

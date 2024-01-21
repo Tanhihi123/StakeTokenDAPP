@@ -3,7 +3,7 @@ import "./Darklight.css";
 import Web3Context from "../../context/Web3Context";
 
 const Darklight = () => {
-  const { handleDark, storage } = useContext(Web3Context);
+  const { handleDark, darkMode } = useContext(Web3Context);
 
 
   return (
@@ -11,7 +11,7 @@ const Darklight = () => {
       <input
         type="checkbox"
         className="input__check"
-        checked={storage}
+        checked={darkMode}
         onChange={handleDark}
       />
       <span className="slider"></span>

@@ -97,7 +97,7 @@ function layChuoiCon(str) {
   return ketQua;
 }
 const Navbar = ({ onClick }) => {
-  const { state ,storage } = useContext(Web3Context);
+  const { state , darkMode } = useContext(Web3Context);
   const { selectedAccount } = state;
   const [menuVisible, setMenuVisible] = useState(false);
   // const [darkMode, setDarkMode] = useState(false);
@@ -126,7 +126,7 @@ const Navbar = ({ onClick }) => {
   // }, [darkMode]);
   return (
     <div className="dark:bg-black">
-      <DashboardHeaderStyles darkMode={storage}>
+      <DashboardHeaderStyles darkMode={darkMode}>
         <Link to="/">
           <div className="logo pl-16">
             <div className="coin">
