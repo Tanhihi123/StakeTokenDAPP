@@ -20,21 +20,17 @@ const DashboardHeaderStyles = styled.div`
     position: fixed;
     top: 75px;
     z-index: 100;
-    transition: background-color ,top 700ms;
-    ${
-      props.darkMode &&
-      css`
-        background-color: black;
-        box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
-      `
-    }
-    ${
-      props.fixed &&
-      css`
-        top: 0px;
-        transition: top 700ms;
-      `
-    }
+    transition: background-color, top 700ms;
+    ${props.darkMode &&
+    css`
+      background-color: black;
+      box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+    `}
+    ${props.fixed &&
+    css`
+      top: 0px;
+      transition: top 700ms;
+    `}
   `}
   .logo {
     display: flex;
@@ -56,20 +52,18 @@ const DashboardHeaderStyles = styled.div`
     list-style: none;
     font-weight: 300;
   }
-  .header-avatar {
-    width: 52px;
-    height: 52px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 100rem;
-    }
-  }
   .header-right {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+    .logo {
+      display: none;
+    }
   }
 `;
 const menuLinks = [
@@ -106,7 +100,7 @@ function layChuoiCon(str) {
 }
 const Navbar = ({ onClick }) => {
   const { state, darkMode } = useContext(Web3Context);
-  const { selectedAccount } = state;
+  const { selectedAccount,chainId } = state;
   const [menuVisible, setMenuVisible] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
 
@@ -200,7 +194,7 @@ const Navbar = ({ onClick }) => {
               </div>
             </div>
           </Link>
-          <ul className="menu">
+          <ul className="menu translate-x-28">
             {menuLinks.map((item) => (
               <li
                 className="menu-item hover:-translate-y-1 hover:text-[#cb99f7] font-bold cursor-pointer select-none"
@@ -211,6 +205,11 @@ const Navbar = ({ onClick }) => {
             ))}
           </ul>
           <div className="flex gap-x-9 justify-center items-center translate-x-12">
+            {selectedAccount && (
+              <div className=" rounded-full px-9 py-3 border border-[#cb99f7] select-none dark:text-white">
+                {chainId === 11155111 ? "Sepolia" : "Unsupported"}
+              </div>
+            )}
             <div className="header-right">
               <Button
                 onClick={selectedAccount ? handleClick : onClick}

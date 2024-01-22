@@ -4,7 +4,7 @@ import Navbar from "../modules/Dashboard/Navbar";
 import Button from "../components/Button/Button";
 import { Link } from "react-router-dom";
 import ConnectUs from "../modules/ConnectUs/ConnectUs";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const HomePage = () => {
   const { handleWallet, isLoading } = useContext(Web3Context);
   return (
@@ -79,6 +79,7 @@ const HomePage = () => {
             src="https://i.ibb.co/gMmVGgk/a11.webp"
             alt="a11"
             border="0"
+            // effect="blur"
             className="w-[200px] h-[300px] absolute right-10 top-[150px]"
           ></img>
           <img
